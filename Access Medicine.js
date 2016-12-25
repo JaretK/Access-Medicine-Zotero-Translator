@@ -33,10 +33,6 @@ function doWeb(doc, url){
 }
 
 function getCallback(resString, resObj, url){
-//	Zotero.debug(resString);
-//	Zotero.debug(resObj);
-//	Zotero.debug(url);
-	
 	item = new Zotero.Item("bookSection");
 	item = parseRis(resString, item);
 	item.complete();
@@ -52,7 +48,7 @@ function parseRis(risString, item){
 	//authors
 	var authors = getRisFields(lines, "AU");
 	for (var i = 0; i < authors.length;i++){
-				var author = parseAuthor(authors[i],'author');
+		var author = parseAuthor(authors[i],'author');
 		item.creators.push(author);
 	}
 	authors = getRisFields(lines, "A1");
@@ -62,7 +58,7 @@ function parseRis(risString, item){
 	}
 	authors = getRisFields(lines, "A2");
 	for (var i = 0; i < authors.length;i++){
-				var author = parseAuthor(authors[i],'editor');
+		var author = parseAuthor(authors[i],'editor');
 		item.creators.push(author);
 	}
 	//... ignore the rest of the authors, not present in these books
@@ -96,8 +92,7 @@ function parseRis(risString, item){
 	//url
 	var itemUrl = getRisFields(lines,'UR')[0];
 	item.url = itemUrl;
-
-	Zotero.debug(lines);
+	
 	return item;
 }
 
