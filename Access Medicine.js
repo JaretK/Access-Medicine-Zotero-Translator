@@ -116,7 +116,7 @@ function getRisFields(risArray, fieldKey){
 
 
 /**
- * Removes HTML encoded text and repalced with ASCII
+ * Removes HTML encoded text and replace with ASCII
  * 
  */
 function formatString(stringIn){
